@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      mc:Ignorable="d"
+                      x:Class="PizzaPriceCompare.Views.PizzaComparisonDetailsPage"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+					  xmlns:viewModels="clr-namespace:PizzaPriceCompare.Core.ViewModels;assembly=PizzaPriceCompare.Core"
+                      xmlns:local="clr-namespace:PizzaPriceCompare.Core.Converters;assembly=PizzaPriceCompare.Core"
+					  x:TypeArguments="viewModels:PizzaComparisonDetailsViewModel"
+                      Title="{Binding PizzaComparison.Name}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:DoubleToCurrencyConverter x:Key="DoubleToCurrency" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <Grid>
+        
+            <StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding PizzaComparison.Name}" FontSize="36"></Label>
+                    <StackLayout HorizontalOptions="End">
+                        <Button Text="Edit"></Button>
+                        <Button Text="Delete"></Button>
+                    </StackLayout>
+                </StackLayout>
+
+                <ScrollView VerticalOptions="FillAndExpand">
+                    <ListView ItemsSource="{Binding PizzaPrices}" ItemSelected="EditPizzaPriceAsync">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid HorizontalOptions="FillAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" FontSize="Large" />
+                                        <Label Text="{Binding PricePerSquareInch}" FontSize="36" Grid.Row="0" Grid.Column="1" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+            </StackLayout>
+
+            <ImageButton Source="i_trash" Clicked="DeletePizzaComparisonAsync" VerticalOptions="End" HorizontalOptions="Start" Style="{StaticResource FloatingImageButton}" />
+            <ImageButton Source="i_add_pizza" Clicked="NewPizzaPriceAsync" VerticalOptions="End" HorizontalOptions="End" Style="{StaticResource FloatingImageButton}" />
+
+        </Grid>
+
+    </ContentPage.Content>
+</views:MvxContentPage>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PizzaPriceCompare.App">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <!--Colors-->
+
+            <Color x:Key="PrimaryColor">#f16821</Color>
+            <Color x:Key="SecondaryColor">#F3A333</Color>
+            <Color x:Key="LightTextColor">White</Color>
+            <Color x:Key="DarkTextColor">#383838</Color>
+            <Color x:Key="FieldTextColor">Black</Color>
+            <Color x:Key="ButtonColor">#F3A333</Color>
+            <Color x:Key="TableHeaderColor">Gray</Color>
+
+            <!--NavigationPage-->
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="BarTextColor" Value="{StaticResource LightTextColor}" />
+            </Style>
+
+            <!--Labels-->
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource DarkTextColor}" />
+                <Setter Property="FontSize"  Value="Large" />
+            </Style>
+
+            <Style x:Key="LightLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource LightTextColor}" />
+                <Setter Property="FontSize"  Value="Large" />
+            </Style>
+
+            <!--Form Fields-->
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource FieldTextColor}" />
+                <Setter Property="FontSize"  Value="Large" />
+            </Style>
+
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="{StaticResource FieldTextColor}" />
+                <Setter Property="FontSize"  Value="Large" />
+            </Style>
+
+            <Style TargetType="TimePicker">
+                <Setter Property="TextColor" Value="{StaticResource FieldTextColor}" />
+                <Setter Property="FontSize"  Value="Large" />
+            </Style>
+
+            <Style TargetType="DatePicker">
+                <Setter Property="TextColor" Value="{StaticResource FieldTextColor}" />
+                <Setter Property="FontSize"  Value="Large" />
+                <Setter Property="Format"  Value="yyyyMMdd" />
+            </Style>
+
+            <!--Buttons-->
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{StaticResource ButtonColor}" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="TextColor" Value="{StaticResource DarkTextColor}" />
+                <Setter Property="FontSize"  Value="Large" />
+                <Setter Property="FontAttributes"  Value="Bold" />
+            </Style>
+
+            <Style x:Key="IconButton" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="Margin" Value="0,0,20,0" />
+            </Style>
+
+            <Style x:Key="StandardImageButton" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource ButtonColor}" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="CornerRadius" Value="5" />
+            </Style>
+
+            <Style x:Key="FloatingImageButton" TargetType="ImageButton">
+                <Setter Property="BackgroundColor" Value="{StaticResource ButtonColor}" />
+                <Setter Property="Padding" Value="10" />
+                <Setter Property="Margin" Value="25" />
+                <Setter Property="CornerRadius" Value="33" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

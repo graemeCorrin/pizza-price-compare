@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      mc:Ignorable="d"
+                      x:Class="PizzaPriceCompare.Views.MainPage"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+					  xmlns:viewModels="clr-namespace:PizzaPriceCompare.Core.ViewModels;assembly=PizzaPriceCompare.Core"
+                      xmlns:local="clr-namespace:PizzaPriceCompare.Core.Util;assembly=PizzaPriceCompare.Core"
+					  x:TypeArguments="viewModels:MainViewModel">
+    <ContentPage.Content>
+        <StackLayout Padding="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="Welcome to Pizza Price Compare" FontSize="36" HorizontalTextAlignment="Center"/>
+            <Button Text="Quick Compare" ImageSource="i_balance"></Button>
+            <Button Text="Saved Comparisons" ImageSource="i_save"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</views:MvxContentPage>

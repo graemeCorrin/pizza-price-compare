@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:viewModels="clr-namespace:PizzaPriceCompare.Core.ViewModels;assembly=PizzaPriceCompare.Core"
+                      x:Class="PizzaPriceCompare.Views.MenuPage"
+                      x:TypeArguments="viewModels:MenuViewModel"
+			          x:Name="MainContent">
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="FillAndExpand">
+
+            <StackLayout BackgroundColor="{StaticResource PrimaryColor}" Padding="30,15,0,15">
+                <Label Text="PizzaPriceCompare" FontSize="Large" TextColor="White" VerticalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+
+            <ListView VerticalOptions="StartAndExpand" ItemsSource="{Binding PrimaryMenuList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="20,0,0,0" Spacing="20">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BindingContext.DataContext.ShowDetailPageAsyncCommand, Source={x:Reference MainContent}}" CommandParameter="{Binding Item1}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="{Binding Item2}" BackgroundColor="Transparent"></Image>
+                                <Label Text="{Binding Item1}" VerticalOptions="Center"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <BoxView HeightRequest="1" Color="{StaticResource DarkTextColor}" Margin="10,0,10,0" />
+
+            <ListView VerticalOptions="End" ItemsSource="{Binding SecondaryMenuList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Padding="20,0,0,0" Spacing="20">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BindingContext.DataContext.ShowDetailPageAsyncCommand, Source={x:Reference MainContent}}" CommandParameter="{Binding Item1}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                                <Image Source="{Binding Item2}" BackgroundColor="Transparent"></Image>
+                                <Label Text="{Binding Item1}" VerticalOptions="Center"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+</views:MvxContentPage>
